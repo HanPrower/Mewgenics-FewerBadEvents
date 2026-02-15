@@ -201,17 +201,6 @@ WatchingHead2 {
                     prompt "EVENT_WATCHINGHEAD2_REW1"
                     get_item HumanBrain
                 }
-                bad {
-                    set_frame 5
-                    prompt "EVENT_WATCHINGHEAD2_REW2" 
-                    party_random_mutation_from_set {
-                        count 1
-                        ears -2
-                        eyebrows -2
-                        eyes -2
-                        mouth -2
-                    }
-                }
             }
         }
     }
@@ -396,33 +385,7 @@ MysteriousTomb1 {
                     event_now_same_cat MysteriousTomb2
                     reward {
                         common {
-                            prompt "EVENT_MYSTERIOUSTOMB1_REW1"
-                            self_status_next_fight {
-                                Poison 2
-                            }
-                        }
-                        rare {
                             prompt "EVENT_MYSTERIOUSTOMB1_REW2"
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSTOMB1_REW3"
-                            self_status_next_fight {
-                                Poison 4
-                            }
-                            
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSTOMB1_REW4"
-                            self_status_next_fight {
-                                Poison 4
-                            }
-                            gain_disorder_from_pool diseases
                         }
                     }
                 }
@@ -485,18 +448,6 @@ MysteriousTomb2 {
                             override_end_option_prompt "EVENT_MYSTERIOUSTOMB2_END_RETREAT"
                             event_now_same_cat MysteriousTomb1 //go back a room
                         }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_MYSTERIOUSTOMB2_REW4"
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                            //gain_disorder_from_pool all_disorders //this is showing up in results which spoils that the cat is coming back.
-                            play_animation resultHole
-                            leave_party_temporarily {
-                                fights_skipped 1
-                            }
-                        }
                     }
                 }
             }
@@ -555,12 +506,6 @@ MysteriousTomb3 {
                             override_end_option_prompt "EVENT_MYSTERIOUSTOMB3_END_MUMMY"
                             event_now_same_cat MysteriousTomb4 //go to next floor
                         }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_MYSTERIOUSTOMB3_REW4"
-                            gain_disorder_from_pool all_disorders
-                            gain_disorder_from_pool all_disorders
-                        }
                     }
                 }
             }
@@ -609,20 +554,6 @@ MysteriousTomb4 {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSTOMB4_REW3"
-                            get_parasite BrainInAJar
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSTOMB4_REW4"
-                            play_animation resultHole
-                            kill cat
-                        }
-                    }
-                }
             }
         }
     }
@@ -662,22 +593,6 @@ ElephantsFootCloser {
                                 random 1
                             }
                             event_now_same_cat ElephantsFootEvenCloser
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW3"
-                            injury radiated
-                        }
-                        rare {
-                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW4"
-                            gain_disorder Cancer
-                            self_status_next_fight {
-                                Poison 5
-                            }
                         }
                     }
                 }
@@ -731,24 +646,6 @@ ElephantsFootEvenCloser {
                                 random 5
                             }
                             event_now_same_cat ElephantsFootEvenCloser
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW3"
-                            injury radiated
-                            injury radiated
-                        }
-                        rare {
-                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW4" 
-                            injury radiated
-                            gain_disorder Cancer
-                            self_status_next_fight {
-                                Poison 10
-                            }
                         }
                     }
                 }
@@ -818,50 +715,6 @@ MysteriousStrangerForced {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        set_adventure_token HasPlayedMysteriousStranger
-                        common {
-                            prompt "EVENT_MYSTERIOUSSTRANGER_REW3"
-                            set_adventure_token HasPlayedMysteriousStranger
-                            set_adventure_token MysteriousStranger_HasLostFinger
-                            random_pool [
-                                {
-                                    permanent_stats {
-                                        str -1
-                                    }
-                                }
-                                {
-                                    permanent_stats {
-                                        dex -1
-                                    }
-                                }
-                            ]
-                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN"
-                            event_now_same_cat MysteriousStranger
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSSTRANGER_REW4"
-                            set_adventure_token HasPlayedMysteriousStranger
-                            set_adventure_token MysteriousStranger_HasLostFinger
-                            random_pool [
-                                {
-                                    permanent_stats {
-                                        str -1
-                                    }
-                                }
-                                {
-                                    permanent_stats {
-                                        dex -1
-                                    }
-                                }
-                            ]
-                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN2"
-                            event_now_same_cat MysteriousStrangerForced
-                        }
-                    }
-                }
             }
         }
     }
@@ -891,41 +744,11 @@ JaggedPathwayStalactite {
                             prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW1"
                             lose_specific_item SlagTight
                             get_item SlagMight
-                            damage [5 8]
-                            self_status_next_fight {
-                                Sleep 1
-                            }
                         }
                         rare {
                             prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW2"
                             lose_specific_item SlagTight
                             get_item SlagMight
-                            damage [3 4]
-                        }
-                    }
-                }
-                bad {
-                    set_frame 6
-                    reward {
-                        common {
-                            prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW3"
-                            lose_specific_item SlagTight
-                            get_item SlagMight
-                            permanent_stats {
-                                int -2
-                            }
-                            self_status_next_fight {
-                                Bleed 3
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW4" 
-                            lose_specific_item SlagTight
-                            gain_disorder BrainDamage
-                            permanent_stats {
-                                int -2
-                            }
-                            //item is destroyed when pulling it out
                         }
                     }
                 }
@@ -939,13 +762,6 @@ JaggedPathwayStalactite {
                 good {
                     prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW5"
                     play_animation [resultLeave 0]
-                }
-                bad {
-                    prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW5"
-                    play_animation [resultLeave 0]
-                    self_status_next_fight {
-                        Fear 1
-                    }
                 }
             }
         }
@@ -1001,24 +817,6 @@ MysteriousCave1 { //repell
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCAVE1_REW3"
-                            self_status_next_fight {
-                                Fear 2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCAVE1_REW4" 
-                            self_status_next_fight {
-                                Fear 2
-                            }
-                            gain_disorder_from_pool mental_disorders
-                        }
-                    }
-                }
             }
 
             leave {
@@ -1071,22 +869,6 @@ MysteriousCave2 { //glowing one
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCAVE2_REW3"
-                            event_now_same_cat MysteriousCave3
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCAVE2_REW4" 
-                            gain_disorder Albinism
-                            mutation {
-                                ears -2
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -1121,21 +903,6 @@ MysteriousCave3 { //climb out
                             self_status_next_fight {
                                 AllStatsUp 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCAVE3_REW3"
-                            injury spd
-                            event_now_same_cat MysteriousCave2
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCAVE3_REW4" 
-                            injury spd
-                            event_now_same_cat MysteriousCave3
                         }
                     }
                 }

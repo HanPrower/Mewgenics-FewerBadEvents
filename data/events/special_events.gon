@@ -38,7 +38,7 @@ Tragedy {
                     set_frame 5
                     prompt "EVENT_TRAGEDY_REW5" 
                     lose_item inventory 
-                }*/
+                }
                 {
                     set_frame 6
                     prompt "EVENT_TRAGEDY_REW6" 
@@ -90,13 +90,13 @@ Tragedy {
                     permanent_stats {
                         int -1
                     }
-                }   
+                }*/
                 /*{   
                     set_frame 13
                     prompt "EVENT_TRAGEDY_REW13" 
                     lose_item equipped
                 }*/
-                {   
+                /*{
                     set_frame 14
                     prompt "EVENT_TRAGEDY_REW14" 
                     self_damage [8 15]
@@ -135,7 +135,7 @@ Tragedy {
                     set_frame 20
                     prompt "EVENT_TRAGEDY_REW20" 
                     injury random
-                }
+                }*/
             ]
         }
     }

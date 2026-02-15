@@ -143,21 +143,6 @@ SealedCrypt {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_SEALEDCRYPT_REW3"
-                            injury str
-                        }
-                        rare {
-                            prompt "EVENT_SEALEDCRYPT_REW4" 
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                            ambush_next_basic_fights 1
-                        }
-                    }
-                }
             }
             
             leave {
@@ -210,22 +195,6 @@ UnmarkedGrave {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_UNMARKEDGRAVE_REW3"
-                            set_frame 3
-                            self_status_next_fight {
-                                Fear 2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_UNMARKEDGRAVE_REW4" 
-                            set_frame 4
-                            gain_disorder BorrowedTime
-                        }
-                    }
-                }
             }
 
             run {
@@ -248,23 +217,6 @@ UnmarkedGrave {
                             permanent_stats {
                                 spd 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 5
-                            prompt "EVENT_UNMARKEDGRAVE_REW7"
-                            set_adventure_token AdventureToken_UnmarkedGraveForced
-                            event_now_same_cat UnmarkedGrave
-                        }
-                        rare {
-                            set_frame 6
-                            prompt "EVENT_UNMARKEDGRAVE_REW8"
-                            next_event_bonus -1
-                            set_adventure_token AdventureToken_TrippedOnBigToe
-                            event_now_same_cat BigToe
                         }
                     }
                 }
@@ -338,22 +290,6 @@ PileOfSkulls {
                         }
                     }
                 }
-
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_PILEOFSKULLS_REW3"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 2
-                            prompt "EVENT_PILEOFSKULLS_REW4" 
-                            self_status_next_fight {
-                                Fear 5
-                            }
-                        }
-                    }
-                }
             }
 
             pilfer {
@@ -373,19 +309,6 @@ PileOfSkulls {
                             get_item_from_pool bone_equipment
                             get_item_from_pool bone_equipment
                             get_item_from_pool bone_equipment
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_PILEOFSKULLS_REW7"
-                            damage [5 10]
-                        }
-                        rare {
-                            prompt "EVENT_PILEOFSKULLS_REW8" 
-                            damage 99%
                         }
                     }
                 }
@@ -437,19 +360,6 @@ BigToe {
                         }
                     }
                 }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_BIGTOE_REW3"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_BIGTOE_REW4" 
-                            get_parasite BigToeCursed
-                        }
-                    }
-                }
             }
 
             bite_it_off {
@@ -474,21 +384,6 @@ BigToe {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 5
-                            prompt "EVENT_BIGTOE_REW7"
-                            injury spd
-                        }
-                        rare {
-                            //set_frame 4
-                            prompt "EVENT_BIGTOE_REW8"
-                            next_event_bonus -2
-                            event_now_same_cat SpookieApparation
-                        }
-                    }
-                }
             }
 
             remove_the_nail {
@@ -505,22 +400,6 @@ BigToe {
                         rare {
                             prompt "EVENT_BIGTOE_REW10"
                             get_item MomsToeNail
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_BIGTOE_REW11"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_BIGTOE_REW12" 
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                            battle "events/bigtoe.lvl"
                         }
                     }
                 }
@@ -548,32 +427,6 @@ TraverseTheNecropolis {
                 good {
                     set_frame 2
                     random_pool [
-                        {
-                            prompt "EVENT_TRAVERSETHENECROPOLIS_REW1"
-                            play_animation resultBad
-                            party_status_next_fight {
-                                Poison 2
-                            }
-                        }
-                        {
-                            prompt "EVENT_TRAVERSETHENECROPOLIS_REW2"
-                            play_animation veryBad
-                            self_status_next_fight {
-                                Bleed 4
-                            }
-                        }
-                        {
-                            prompt "EVENT_TRAVERSETHENECROPOLIS_REW3"
-                            play_animation resultBad
-                            party_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        {
-                            prompt "EVENT_TRAVERSETHENECROPOLIS_REW4"
-                            play_animation resultBad
-                            party_damage [5 10]
-                        }
                         {
                             prompt "EVENT_TRAVERSETHENECROPOLIS_REW5"
                             play_animation resultGood
@@ -645,21 +498,6 @@ MysteriousCreature {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCREATURE_REW3"
-                            gain_disorder_from_pool physical_disorders
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCREATURE_REW4" 
-                            gain_disorder_from_pool physical_disorders
-                            gain_disorder_from_pool physical_disorders
-                            random_mutation 2
-                        }
-                    }
-                }
             }
 
             run {
@@ -677,20 +515,6 @@ MysteriousCreature {
                             set_frame 2
                             prompt "EVENT_MYSTERIOUSCREATURE_REW6"
                             ally_ambush_next_fights 1
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCREATURE_REW7"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCREATURE_REW8" 
-                            gain_disorder_from_pool physical_disorders
-                            random_mutation 1
                         }
                     }
                 }

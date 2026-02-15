@@ -116,21 +116,6 @@ Dumpster {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKEDDUMPSTER_REW2"
-                            party_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_LOCKEDDUMPSTER_REW3"
-                            gain_disorder_from_pool mental_disorders
-                        }
-                    }
-                }
             }
 
             pick {
@@ -194,20 +179,6 @@ Safe {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_SAFE_REW2"
-                            party_damage 5
-                        }
-                        rare {
-                            set_frame 2 //TODO: Need art for this result.
-                            prompt "EVENT_SAFE_REW3"
-                            get_parasite ChildSkull
-                        }
-                    }
-                }
             }
 
             pick {
@@ -261,22 +232,6 @@ Bottle {
                         }
                     }
                 }
-                bad {
-                    prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW2"
-                    set_frame 2
-                    reward {
-                        common {
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                        rare {
-                            permanent_stats {
-                                random -2
-                            }
-                        }
-                    }
-                }
             }
 
             take {
@@ -298,20 +253,6 @@ Bottle {
                             get_item Bottles
                             get_item Bottles
 							get_item Bottles
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW4"
-                            event_now_same_cat Tragedy
-                        }
-                        rare {
-                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW5"
-                            damage 2
-                            get_item GlassShard
                         }
                     }
                 }
@@ -385,20 +326,6 @@ Pinata {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_SOMEKINDOFPINATA_REW3"
-                            set_adventure_token HasHitPinata
-                            override_end_option_prompt "EVENT_SOMEKINDOFPINATA_AGAIN"
-                            event_now_same_cat Pinata
-                        }
-                        rare {
-                            prompt "EVENT_SOMEKINDOFPINATA_REW4"
-                            damage [1 3]
-                        }
-                    }
-                }
             }
 
             leave {
@@ -459,22 +386,6 @@ GenieLamp {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_ANODDLAMP_REW3"
-                            self_status_next_fight {
-                                CharismaUp -1
-                            }
-                            //nothing happens
-                        }
-                        rare {
-                            prompt "EVENT_ANODDLAMP_REW4"
-                            set_frame 4
-                            event_now_same_cat Genie_Bad //this event is in "sequence_event_continuations.gon"
-                        }
-                    }
-                }
             }
 
             leave {
@@ -529,26 +440,6 @@ ToxicWaste {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW3"
-
-                            self_status_next_fight {
-                                Burn 4
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW4"
-
-                            self_status_next_fight {
-                                Burn 6
-                            }
-                            gain_disorder Charred
-                        }
-                    }
-                }
             }
 
             examine {
@@ -582,24 +473,6 @@ ToxicWaste {
                         }
                     }
                 }
-
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW7"
-                            self_status_next_fight {
-                                Poison 2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW8"
-                            permanent_stats {
-                                int -2
-                            }
-                        }
-                    }
-                }
             }
 
             eat {
@@ -625,24 +498,6 @@ ToxicWaste {
                             }
                             random_mutation_from_set {
                                 texture -1
-                            }
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW11"
-                            damage 10
-                        }
-                        rare {
-                            prompt "EVENT_AVATOFTOXICWASTE_REW12"
-                            damage 50%
-                            permanent_stats {
-                                con -1
-                                cha -1
                             }
                         }
                     }
@@ -684,26 +539,6 @@ WomansPurse {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_WOMANSPURSE_REW3"
-                            permanent_stats {
-                                random 1
-                            }
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WOMANSPURSE_REW4" 
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                    }
-                }
             }
 
             examine {
@@ -732,27 +567,6 @@ WomansPurse {
                             get_item_from_pool pills
                             get_item_from_pool pills
                             gain_coins 10
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_WOMANSPURSE_REW7"
-                            
-                            permanent_stats {
-                                random 1
-                            }
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WOMANSPURSE_REW8"
-                            permanent_stats {
-                                random -1
-                            }
                         }
                     }
                 }
@@ -806,26 +620,6 @@ OldCan {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_OLDCAN_REW3"
-                            self_status_next_fight {
-                                DexterityUp -1
-                            }
-                            self_status_next_fight { 
-                                MissChance 10
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_OLDCAN_REW4" 
-                            permanent_stats {
-                                int -1
-                            }
-                        }
-                    }
-                }
             }
 
             take {
@@ -844,11 +638,6 @@ OldCan {
                             get_item_from_pool can_items_rare
                         }
                     }
-                }
-                bad {
-                    set_frame 2
-                    prompt "EVENT_OLDCAN_REW6"
-                    get_parasite_from_pool parasites
                 }
             }
             
@@ -893,19 +682,6 @@ ARock {
                         rare {
                             prompt "EVENT_AROCK_REW2"
                             get_item Geode
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_AROCK_REW3"
-                            self_damage 1
-                        }
-                        rare {
-                            prompt "EVENT_AROCK_REW4" 
-                            injury str //broken paw
                         }
                     }
                 }
@@ -979,23 +755,6 @@ HollowSkull {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_HOLLOWSKULL_REW4"
-                            self_status_next_fight {
-                                SpiderInfested 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_HOLLOWSKULL_REW5" 
-                            permanent_stats {
-                                lck -2
-                            }
-                        }
-                    }
-                }
             }
                         
             examine {
@@ -1042,23 +801,6 @@ TunaCan {
                         rare {
                             prompt "EVENT_TUNACAN_REW2"
                             get_item_from_pool [Pearl, FishHook, FishNecklace]
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_TUNACAN_REW3"
-                            self_damage 2
-                        }
-                        rare {
-                            prompt "EVENT_TUNACAN_REW4" 
-                            self_damage 6
-                            self_status_next_fight {
-                                Bleed 4
-                            }
-                            get_item GlassShard
                         }
                     }
                 }
@@ -1111,19 +853,6 @@ AFewCoins {
                         }
                     }
                 }
-                bad {
-                    set_frame 1
-                    reward {
-                        common {
-                            prompt "EVENT_AFEWCOINS_REW3"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_AFEWCOINS_REW4" 
-                            gain_disorder Depression
-                        }
-                    }
-                }
             }
 
             examine {
@@ -1140,19 +869,6 @@ AFewCoins {
                         rare {
                             prompt "EVENT_AFEWCOINS_REW6"
                             get_item_from_pool Coin_items
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_AFEWCOINS_REW7"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_AFEWCOINS_REW8" 
-                            gain_disorder_from_pool diseases
                         }
                     }
                 }
@@ -1200,20 +916,6 @@ APuzzleBox {
                             set_frame 2
                             prompt "EVENT_APUZZLEBOX_REW2"
                             battle "events/hellspawn.lvl"
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_APUZZLEBOX_REW3"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 2
-                            prompt "EVENT_APUZZLEBOX_REW4" 
-                            gain_disorder Soulless
-							get_item PuzzleBox
                         }
                     }
                 }
@@ -1345,21 +1047,6 @@ TimeCapsule {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_TIMECAPSULE_REW3"
-                            self_status_next_fight {
-                                Bleed 2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_TIMECAPSULE_REW4"
-                            get_parasite PawShards
-                        }
-                    }
-                }
             }
             
             examine {
@@ -1460,30 +1147,6 @@ TimeCapsule {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_TIMECAPSULE_REW7"
-                            damage 5
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_TIMECAPSULE_REW8"
-                            conditional_reward {
-                                requirements {
-                                    is_not_chapter [future theend]
-                                }
-                                reward {
-                                    party_damage [5 10]
-                                }
-                                else {
-                                    party_damage [10 15]
-                                }
-                            }
-                        }
-                    }
-                }
             }
             
             ignore {
@@ -1531,21 +1194,6 @@ Locket {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKET_REW3"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_LOCKET_REW4" 
-                            permanent_stats {
-                                lck -2
-                            }
-                        }
-                    }
-                }
             }
 
             examine {
@@ -1562,19 +1210,6 @@ Locket {
                         rare {
                             prompt "EVENT_LOCKET_REW6"
                             get_item_from_pool isaac_items
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKET_REW7"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_LOCKET_REW8"
-                            gain_disorder DeepCut
                         }
                     }
                 }
@@ -1627,25 +1262,6 @@ WeirdEgg {
                         }
                     }
                 }
-                bad {
-                    
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_WEIRDEGG_REW3"
-                            gain_disorder Depression
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_WEIRDEGG_REW4" 
-                            spawn_unit_next_fight {
-                                object MegaFetus
-                                count 1
-                                spawn_side enemies
-                            }
-                        }
-                    }
-                }
             }
 
             loot {
@@ -1663,25 +1279,6 @@ WeirdEgg {
                         rare {
                             prompt "EVENT_WEIRDEGG_REW6"
                             gain_familiar FamiliarFetus
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_WEIRDEGG_REW7"
-                            self_status_next_fight {
-                                Bruise 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WEIRDEGG_REW8" 
-                            spawn_unit_next_fight {
-                                object MegaFetus //TODO: 'next combat features specific enemy'
-                                count 1
-                                spawn_side enemies
-                            }
                         }
                     }
                 }
@@ -1735,21 +1332,6 @@ RacyMagazine {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_RACYMAGAZINE_REW3"
-                            self_status_next_fight {
-                                Fear 3
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_RACYMAGAZINE_REW4"
-                            make_old self
-                        }
-                    }
-                }
             }
 
             ignore {
@@ -1767,23 +1349,6 @@ RacyMagazine {
                             prompt "EVENT_RACYMAGAZINE_REW6"
                             permanent_stats {
                                 con 1
-                            }
-                        }
-                    }
-                }
-                bad {
-                    
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_RACYMAGAZINE_REW7"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_RACYMAGAZINE_REW8" 
-                            permanent_stats {
-                                int -1
                             }
                         }
                     }
@@ -1844,164 +1409,6 @@ PillBottle {
 
                             permanent_stats {
                                 random 2   
-                            }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_PILLBOTTLE_REW3"
-                            random_pool [
-                                {
-                                    self_status_next_fight {
-                                        Drowsy 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Sleep 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Bleed 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Burn 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Poison 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        MagicWeakness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Confusion 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Madness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Fear 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Stun 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Immobile 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Weakness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Bruise 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Blind 1
-                                    }
-                                }
-                            ]
-                            random_pool [
-                                {
-                                    self_status_next_fight {
-                                        Drowsy 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Sleep 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Bleed 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Burn 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Poison 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        MagicWeakness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Confusion 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Madness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Fear 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Stun 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Immobile 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Weakness 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Bruise 1
-                                    }
-                                }
-                                {
-                                    self_status_next_fight {
-                                        Blind 1
-                                    }
-                                }
-                            ]
-                        }
-                        rare {
-                            prompt "EVENT_PILLBOTTLE_REW4"
-                            permanent_stats {
-                                random -2
                             }
                         }
                     }
@@ -2067,21 +1474,6 @@ PillBottle {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_PILLBOTTLE_REW7"
-                            self_status_next_fight {
-                                Confusion 4
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_PILLBOTTLE_REW8" 
-                            gain_disorder PillPopper
-                        }
-                    }
-                }
             }
 
             ignore {
@@ -2130,22 +1522,6 @@ Coffin {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_COFFIN_REW3"
-                            spawn_unit_next_fight {
-                                object ButtZombie
-                                count 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_COFFIN_REW4" 
-                            gain_disorder Necrosis
-                        }
-                    }
-                }
             }
 
             examine {
@@ -2164,23 +1540,6 @@ Coffin {
                             get_item_from_pool fleshhead_items
 							get_item_from_pool fleshhead_items
 							get_item_from_pool bone_equipment
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_COFFIN_REW7"
-                            spawn_unit_next_fight {
-                                object ButtZombie
-                                count 1
-                            }
-
-                        }
-                        rare {
-                            prompt "EVENT_COFFIN_REW8" 
-                            gain_disorder Necrosis
                         }
                     }
                 }
@@ -2232,19 +1591,6 @@ Clam {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_CLAM_REW3"
-                            self_damage 3
-                        }
-                        rare {
-                            prompt "EVENT_CLAM_REW4"
-                            get_parasite Clam
-                        }
-                    }
-                }
             }
 
             bash { //did not have bash implementation in sheet so I put these in.
@@ -2264,19 +1610,6 @@ Clam {
                             set_frame 2
                             prompt "EVENT_CLAM_REW6"
                             get_item TinyPebble
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_CLAM_REW7"
-                            self_damage 3
-                        }
-                        rare {
-                            prompt "EVENT_CLAM_REW8" 
-                            injury str
                         }
                     }
                 }
@@ -2327,26 +1660,6 @@ GratingInTheFloor {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_GRATINGINTHEFLOOR_REW3"
-                            party_status_next_fight {
-                                Poison 2
-                            }
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_GRATINGINTHEFLOOR_REW4"
-                            spawn_unit_next_fight {
-                                object FastFetus
-                                count 1
-                                spawn_side cats
-                            }
-                        }
-                    }
-                }
             }
             examine {
                 label "EVENT_EXAMINE_ANSW"
@@ -2363,25 +1676,6 @@ GratingInTheFloor {
                             prompt "EVENT_GRATINGINTHEFLOOR_REW6"
                             next_event_bonus 2
                             event_now_same_cat random
-                        }
-                    }
-                }
-                bad {
-                    
-                    reward {
-                        common {
-                            set_frame 1
-                            prompt "EVENT_GRATINGINTHEFLOOR_REW7"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_GRATINGINTHEFLOOR_REW8" 
-                            spawn_unit_next_fight {
-                                object FastRat
-                                count 2
-                                spawn_side cats
-                            }
                         }
                     }
                 }
@@ -2446,22 +1740,6 @@ BrokenTV {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 6
-                            prompt "EVENT_BROKENTV_REW3"
-                            self_status_next_fight {
-                                Bleed 3
-                            }
-                        }
-                        rare {
-                            set_frame 8
-                            prompt "EVENT_BROKENTV_REW4" 
-                            gain_disorder Charred
-                        }
-                    }
-                }
             }
 
             turnon {
@@ -2481,24 +1759,6 @@ BrokenTV {
                             set_frame 3
                             prompt "EVENT_BROKENTV_REW6"
                             level_up self
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_BROKENTV_REW7"
-                            spawn_unit_next_fight {
-                                object Spookie
-                            }
-                            
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_BROKENTV_REW8" 
-                            gain_disorder Soulless
                         }
                     }
                 }

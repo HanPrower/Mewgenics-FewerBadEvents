@@ -68,23 +68,6 @@ TrashBin { //originally in treasure_box.gon
                         }
                     }
                 }
-                bad {
-                    prompt "EVENT_TRASHBIN_REW3"
-                    set_frame 2
-                    reward {
-                        common {
-                            self_status_next_fight {
-                                Poison 2
-                            }
-                        }
-                        rare {
-                            self_status_next_fight {
-                                Poison 2
-                            }
-                            get_parasite_from_pool sludge_armor
-                        }
-                    }
-                }
             }
 
             pick {
@@ -137,25 +120,6 @@ ClosedWindow { //moved from misc_events.gon
                         }
                     }
                 }
-
-                bad {
-                    set_frame 2
-
-                    reward {
-                        common {
-                            prompt "EVENT_CLOSEDWINDOW_REW3"
-                            get_parasite PawShards
-                            self_status_next_fight {
-                                Bleed 2
-                                ChangeTileUnderCharacterAtStart GlassTile
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_CLOSEDWINDOW_REW4"
-                            get_parasite FaceShards
-                        }
-                    }
-                }
             }
 
             examine {
@@ -174,20 +138,6 @@ ClosedWindow { //moved from misc_events.gon
                         rare {
                             prompt "EVENT_CLOSEDWINDOW_REW6"
                             get_item_from_pool treasure_easy
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 4
-                    prompt "EVENT_CLOSEDWINDOW_REW7"
-
-                    reward {
-                        common {
-                            gain_disorder_from_pool mental_disorders
-                        }
-                        rare {
-                            spawn_reflection_next_fight 1
                         }
                     }
                 }
@@ -237,19 +187,6 @@ MouseNest {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MOUSENEST_REW3"
-                            damage 5
-                        }
-                        rare {
-                            prompt "EVENT_MOUSENEST_REW4" 
-                            gain_disorder_from_pool diseases
-                        }
-                    }
-                }
             }
 
             attack {
@@ -276,19 +213,6 @@ MouseNest {
                                     Fear 3
                                 }
                             }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_MOUSENEST_REW7"
-                            gain_food -5
-                        }
-                        rare {
-                            prompt "EVENT_MOUSENEST_REW8" 
-                            damage 99%
                         }
                     }
                 }
@@ -335,21 +259,6 @@ WallOfCats {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WALLOFCATS_REW3"
-                            self_status_next_fight {
-                                Bleed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WALLOFCATS_REW4" 
-                            get_parasite MetalRod
-                        }
-                    }
-                }
             }
             
             bash {
@@ -376,21 +285,6 @@ WallOfCats {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WALLOFCATS_REW7"
-                            self_status_next_fight {
-                                Bleed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WALLOFCATS_REW8" 
-                            get_parasite MetalRod
-                        }
-                    }
-                }
             }
 
             examine {
@@ -414,21 +308,6 @@ WallOfCats {
                                 pool chapter_rare
                                 restrict [weapon, trinket, armor]
                             }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WALLOFCATS_REW11"
-                            self_status_next_fight {
-                                Bleed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WALLOFCATS_REW12" 
-                            get_parasite MetalRod
                         }
                     }
                 }
@@ -481,23 +360,6 @@ KnifeInTheWall {
                             get_item MomsKnife
                             set_legacy_token WorldEventLegacyToken_MomsKnife
                             trigger_adventure_unlock legacy_event_unlock_momsknife
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_KNIFEINTHEWALL_REW5"
-                            self_status_next_fight {
-                                Bleed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_KNIFEINTHEWALL_REW5"
-                            self_status_next_fight {
-                                Bleed 3
-                            }
                         }
                     }
                 }

@@ -28,19 +28,6 @@ BallOfCancer {
                         }
                     }
                 }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_BALLOFCANCER_REW3"
-                            damage 1
-                        }
-                        rare {
-                            prompt "EVENT_BALLOFCANCER_REW4" 
-                            gain_disorder Cancer
-                        }
-                    }
-                }
             }
             
             kiss {
@@ -69,24 +56,6 @@ BallOfCancer {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BALLOFCANCER_REW7"
-                            mutation {
-                                mouth -2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_BALLOFCANCER_REW8" 
-                            mutation {
-                                mouth -2
-                                eyes -2
-                            }
-                        }
-                    }
-                }
             }
             
             destroy {
@@ -105,23 +74,6 @@ BallOfCancer {
                             self_status_next_fight {
                                 AllStatsUp 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 7
-                            prompt "EVENT_BALLOFCANCER_REW11"
-                            random_mutation_from_set {
-                                arm1 -2
-                                arm2 -2
-                            }
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_BALLOFCANCER_REW12" 
-                            gain_disorder Cancer
                         }
                     }
                 }
@@ -157,20 +109,6 @@ MysteriousBuilding {
                         rare {
                             prompt "EVENT_MYSTERIOUSBUILDING_REW2"
                             shop_now Event_RareShop
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSBUILDING_REW3"
-                            next_event_bonus -1
-                            event_now_same_cat random
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSBUILDING_REW4" 
-                            event_now_same_cat Tragedy
                         }
                     }
                 }
@@ -221,22 +159,6 @@ CrackInTheEarth {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_CRACKINTHEEARTH_REW3"
-                            lose_item equipped
-                        }
-                        rare {
-                            prompt "EVENT_CRACKINTHEEARTH_REW4" 
-                            injury cursed
-                            self_status_next_fight {
-                                Fear 4
-                            }
-                        }
-                    }
-                }
             }
 
             enter {
@@ -264,41 +186,6 @@ CrackInTheEarth {
                         rare {
                             prompt "EVENT_CRACKINTHEEARTH_REW6"
                             next_event_bonus 2
-                            random_pool [
-                                {
-                                    event_now_same_cat DemonicIdol
-                                }
-                                {
-                                    event_now_same_cat JaggedPathway
-                                }
-                                {
-                                    event_now_same_cat MysteriousStranger
-                                }
-                            ]
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_CRACKINTHEEARTH_REW7"
-                            next_event_bonus -1
-                            random_pool [
-                                {
-                                    event_now_same_cat DemonicIdol
-                                }
-                                {
-                                    event_now_same_cat JaggedPathway
-                                }
-                                {
-                                    event_now_same_cat MysteriousStranger
-                                }
-                            ]
-                        }
-                        rare {
-                            prompt "EVENT_CRACKINTHEEARTH_REW8" 
-                            next_event_bonus -2
                             random_pool [
                                 {
                                     event_now_same_cat DemonicIdol

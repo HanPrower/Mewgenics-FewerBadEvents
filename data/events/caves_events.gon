@@ -30,28 +30,6 @@ DyingFetus {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_DYINGFETUS_REW3"
-                            spawn_unit_next_fight {
-                                object Fetus
-                                count 1
-                                spawn_side cats
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_DYINGFETUS_REW4"
-                            mutation {
-                                mouth 705
-                            }
-                            permanent_stats {
-                                dex -1
-                            }
-                        }
-                    }
-                }
             }
             
             patch_up {
@@ -71,26 +49,6 @@ DyingFetus {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_DYINGFETUS_REW7"
-                            spawn_unit_next_fight {
-                                object Fetus
-                                count 1
-                                spawn_side cats
-                            }
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_DYINGFETUS_REW8" 
-                            permanent_stats {
-                                con -1
-                            }
-                        }
-                    }
-                }
             }
 
             put_out_of_misery {
@@ -107,24 +65,6 @@ DyingFetus {
                         rare {
                             prompt "EVENT_DYINGFETUS_REW10"
                             get_item_from_pool [GutsHeart GutsLiver GutsIntestines]
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_DYINGFETUS_REW11"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 6
-                            prompt "EVENT_DYINGFETUS_REW12" 
-                            spawn_unit_next_fight {
-                                object MegaFetus
-                                count 1
-                                spawn_side enemies
-                            }
                         }
                     }
                 }
@@ -164,26 +104,6 @@ StuckCorpse {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_STUCKCORPSE_REW3"
-                            damage [3 6]
-                            self_status_next_fight {
-                                Webbed 2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_STUCKCORPSE_REW4" 
-                            spawn_unit_next_fight {
-                                object [TinySpider]
-                                count 5
-                                spawn_side cats
-                            }
-                        }
-                    }
-                }
             }
 
             remove {
@@ -200,22 +120,6 @@ StuckCorpse {
                         rare {
                             prompt "EVENT_STUCKCORPSE_REW6"
                             get_item_from_pool chapter_rare
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {  
-                            set_frame 5
-                            prompt "EVENT_STUCKCORPSE_REW7"
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_STUCKCORPSE_REW8" 
-                            event_now_same_cat CatHole
                         }
                     }
                 }
@@ -257,27 +161,6 @@ SomethingWhisperingFromTheDarkness {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_SOMETHINGWHISPERING_REW3"
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_SOMETHINGWHISPERING_REW4" 
-                            party_damage 2
-                            ambush_next_basic_fights 1
-                            party_status_next_fight {
-                                Immobile 1
-                            }
-                        }
-                    }
-                }
             }
 
             find_another_way {
@@ -295,23 +178,6 @@ SomethingWhisperingFromTheDarkness {
                             set_frame 2
                             prompt "EVENT_SOMETHINGWHISPERING_REW6"
                             event_now_same_cat Blessing
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_SOMETHINGWHISPERING_REW7"
-                            next_event_bonus -1
-                            event_now random
-                            play_animation [resultLeave 0]
-                        }
-                        rare {
-                            prompt "EVENT_SOMETHINGWHISPERING_REW8" 
-                            next_event_bonus -2
-                            event_now_same_cat random
-                           // play_result_animation resultBad
                         }
                     }
                 }
@@ -436,74 +302,6 @@ CrackInTheWall {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_CRACKINTHEWALL_REW3"
-                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
-                            lose_item weapon
-                        }
-                        rare {
-                            prompt "EVENT_CRACKINTHEWALL_REW4" 
-                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
-                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
-                            party_damage [5 10]
-                            party_status_next_fight {
-                                AbilityOnBattleStart_Immediate RocksFallEvent
-                            }
-                        }
-                    }
-
-                    //Update frame
-                    conditional_reward {
-                        requirements {
-                            counter_maximum [WorldEventLegacyCounter_CrackInTheWall 0]
-                        }
-                        reward {
-                            set_frame 1
-                        }
-                    }
-                    conditional_reward {
-                        requirements {
-                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
-                        }
-                        reward {
-                            set_frame 2
-                        }
-                    }
-                    conditional_reward {
-                        requirements {
-                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
-                        }
-                        reward {
-                            set_frame 2
-                        }
-                    }
-                    conditional_reward {
-                        requirements {
-                            counter_range [WorldEventLegacyCounter_CrackInTheWall 2 2]
-                        }
-                        reward {
-                            set_frame 3
-                        }
-                    }
-                    conditional_reward {
-                        requirements {
-                            counter_range [WorldEventLegacyCounter_CrackInTheWall 3 3]
-                        }
-                        reward {
-                            set_frame 4
-                        }
-                    }
-                    conditional_reward {
-                        requirements {
-                            counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
-                        }
-                        reward {
-                            set_frame 5
-                        }
-                    }
-                }
             }
 
             bash {
@@ -559,18 +357,6 @@ CrackInTheWall {
                         }
                         reward {
                             set_frame 5
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_CRACKINTHEWALL_REW7"
-                            damage 5
-                        }
-                        rare {
-                            prompt "EVENT_CRACKINTHEWALL_REW8" 
-                            injury str
                         }
                     }
                 }
@@ -649,20 +435,6 @@ LeakingMeat {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_LEAKINGMEAT_REW3"
-                            random_mutation 1
-                            gain_disorder_from_pool all_disorders
-                        }
-                        rare {
-                            prompt "EVENT_LEAKINGMEAT_REW4" 
-                            gain_disorder_from_pool all_disorders
-                        }
-                    }
-                }
             }
 
             kiss_meat {
@@ -680,26 +452,6 @@ LeakingMeat {
                             prompt "EVENT_LEAKINGMEAT_REW6"
                             random_mutation 1
                             gain_familiar CharmedHeadTumor
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_LEAKINGMEAT_REW7"
-                            random_mutation 1
-                            get_parasite_from_pool [CrimsonMask_Cursed RedCap_Cursed PoundOfFlesh_Cursed]
-                        }
-                        rare {
-                            prompt "EVENT_LEAKINGMEAT_REW8" 
-                            random_mutation_from_set {
-                                mouth -1
-                            }
-                            self_status_next_fight {
-                                Fights 99
-                                PermanentConfusion 1
-                            }
                         }
                     }
                 }

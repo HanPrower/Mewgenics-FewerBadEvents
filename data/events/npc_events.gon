@@ -239,11 +239,9 @@ Beanies1 {
                     reward {
                         common {
                             prompt "EVENT_DRBEANIES_REW3"
-                            party_damage 3
                         }
                         rare {
                             prompt "EVENT_DRBEANIES_REW4"
-                            party_damage 10
                         }
                     }
                 }
@@ -301,23 +299,6 @@ Beanies2 {
                                 cha 1
                                 lck 1
                             }
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 3
-
-                    reward {
-                        common {
-                            prompt "EVENT_DRBEANIES2_REW3"
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_DRBEANIES2_REW4"
-                            random_mutation 1
                         }
                     }
                 }
@@ -1459,12 +1440,6 @@ WhiteRabbit {
                 bad {
                     reward {
                         common {
-                            set_frame 6
-                            prompt "EVENT_WHITERABBIT_REW3"
-                            injury random
-                            damage [5 8]
-                        }
-                        rare {
                             set_frame 7
                             prompt "EVENT_WHITERABBIT_REW4" 
                             battle "events/WhiteRabbit.lvl"
@@ -1495,12 +1470,6 @@ WhiteRabbit {
                 bad {
                     reward {
                         common {
-                            set_frame 6
-                            prompt "EVENT_WHITERABBIT_REW7"
-                            injury random
-                            damage [5 8]
-                        }
-                        rare {
                             set_frame 7
                             prompt "EVENT_WHITERABBIT_REW8" 
                             battle "events/WhiteRabbit.lvl"
@@ -1558,23 +1527,6 @@ MysteriousMachine {
                             prompt "EVENT_MYSTERIOUSMACHINE_REW2"
                             set_frame 4
                             event_now MysteriousMachine_Good
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSMACHINE_REW3"
-                            set_frame 3
-                            damage 1
-                            self_status_next_fight {
-                                Stun 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSMACHINE_REW4" 
-                            set_frame 4
-                            event_now MysteriousMachine_Bad
                         }
                     }
                 }
@@ -1642,21 +1594,6 @@ BodyOfGlorg {
                         rare {
                             prompt "EVENT_BODYOFGLORG_REW4"
                             learn_passive Host
-                            get_parasite_from_pool parasites
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BODYOFGLORG_REW5"
-                            get_parasite_from_pool parasites
-                        }
-                        rare {
-                            prompt "EVENT_BODYOFGLORG_REW6" 
-                            get_parasite_from_pool parasites
-                            get_parasite_from_pool parasites
                             get_parasite_from_pool parasites
                         }
                     }

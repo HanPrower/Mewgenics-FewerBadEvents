@@ -29,21 +29,6 @@ LockedCrate {
                         }
                     }
                 }
-
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKEDCRATE_REW3"
-                            //fail to get anything
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_LOCKEDCRATE_REW4" 
-                            gain_disorder_from_pool all_disorders
-                            random_mutation 1
-                        }
-                    }
-                }
             }
 
             pick_lock {
@@ -61,21 +46,6 @@ LockedCrate {
                             prompt "EVENT_LOCKEDCRATE_REW6"
                             get_item_from_pool chapter_specific_item
                             gain_food [8 10]
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKEDCRATE_REW7"
-                            //fail to get anything
-
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_LOCKEDCRATE_REW8" 
-                            gain_disorder_from_pool all_disorders
-                            random_mutation 1
                         }
                     }
                 }
@@ -112,19 +82,6 @@ MysteriousManual {
                             prompt "EVENT_MYSTERIOUSMANUAL_REW2"
                             set_frame 3
                             next_event_bonus 2
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSMANUAL_REW3"
-                            ambush_next_basic_fights 1
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSMANUAL_REW4" 
-                            gain_disorder Dyslexia
                         }
                     }
                 }
@@ -174,22 +131,6 @@ ElephantsFoot {
                             random_mutation 1
                             permanent_stats {
                                 random 1
-                            }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_ELEPHANTSFOOT_REW3"
-                            injury radiated
-                        }
-                        rare {
-                            prompt "EVENT_ELEPHANTSFOOT_REW4" 
-                            injury radiated
-                            self_status_next_fight {
-                                Poison 10
                             }
                         }
                     }

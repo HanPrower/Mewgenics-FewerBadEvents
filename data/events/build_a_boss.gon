@@ -156,8 +156,6 @@ StacyMutant2 {
                     set_frame 3
 
                     prompt "QEVENT_STACYMUTANT2_REW4"
-                    gain_disorder_from_pool all_disorders
-                    get_parasite_from_pool parasites
 
                     event_now StacyMutant3
                 }
@@ -234,13 +232,6 @@ StacyMutant3 {
                     set_frame 3
 
                     prompt "QEVENT_STACYMUTANT3_REW4"
-                    injury str
-                    injury dex
-                    injury con
-                    injury int
-                    injury cha
-                    injury spd
-                    injury lck
 
                     event_now StacyMutant4
                 }
@@ -315,11 +306,6 @@ StacyMutant4 {
 
                     prompt "QEVENT_STACYMUTANT4_REW4"
                     set_legacy_token WorldEventLegacyToken_StacyMutant
-                    gain_disorder_from_pool all_disorders
-                    self_status_next_fight {
-                         NoHealthRegen 1
-                         NoManaRegen 1
-                    }
                     prompt "QEVENT_STACYMUTANT4_REW5"
                 }
             }

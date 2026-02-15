@@ -30,21 +30,6 @@ CrashedObject {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_CRASHEDOBJECT_REW3"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 7
-                            prompt "EVENT_CRASHEDOBJECT_REW4" 
-                            self_status_next_fight {
-                                ProbeCharmed 1
-                            }
-                        }
-                    }
-                }
             }
 
             repair {
@@ -64,22 +49,6 @@ CrashedObject {
                             set_frame 6
                             prompt "EVENT_CRASHEDOBJECT_REW6"
                             gain_familiar MechSuit
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_CRASHEDOBJECT_REW7"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 7
-                            prompt "EVENT_CRASHEDOBJECT_REW8" 
-                            damage 10
-                            self_status_next_fight {
-                                Bleed 2
-                            }
                         }
                     }
                 }
@@ -157,18 +126,6 @@ CrashedObject {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_CRASHEDOBJECT_REW11"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_CRASHEDOBJECT_REW12" 
-                            ambush_next_basic_fights 1
-                        }
-                    }
-                }
             }   
         }
     }
@@ -231,20 +188,6 @@ MysteriousObelisk {
                                     get_item_from_pool [ObeliskMask ObeliskHat ObeliskArmor]
                                 }
                             ]
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_MYSTERIOUSOBELISK_REW3"
-                            gain_disorder_from_pool all_disorders
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_MYSTERIOUSOBELISK_REW4" 
-                            scramble_abilities all
                         }
                     }
                 }
@@ -313,42 +256,6 @@ SmallBlackHole {
                             set_frame 3
                             prompt "EVENT_SMALLBLACKHOLE_REW2"
                             random_mutation 3
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_SMALLBLACKHOLE_REW3"
-                            permanent_stats {
-                                str -2
-                            }
-                            random_mutation {
-                                count 2
-                                asymmetric true
-                            }
-                            random_pool [ //lose arm
-                                {
-                                    mutation {
-                                        arm1 -2
-                                    }
-                                }
-                                {
-                                    mutation {
-                                        arm2 -2
-                                    }
-                                }
-                            ]
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_SMALLBLACKHOLE_REW4"
-                            random_mutation 2
-                            random_mutation {
-                                count 2
-                                tag birth_defect
-                            }
                         }
                     }
                 }

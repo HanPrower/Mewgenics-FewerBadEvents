@@ -51,9 +51,6 @@ VendingMachine {
                         }
                     ]
                 }
-                bad {
-                    prompt "EVENT_VENDINGMACHINE_REW0"
-                }
             }
 
             shake {
@@ -75,20 +72,6 @@ VendingMachine {
                             get_item_from_pool consumables
                             get_item_from_pool tech_items
 							get_item_from_pool tech_items
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_VENDINGMACHINE_REW7"
-                            set_frame 4
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_VENDINGMACHINE_REW8" 
-                            set_frame 5
-                            gain_disorder HeadTrauma
                         }
                     }
                 }
@@ -163,26 +146,6 @@ ComputerConsole {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4 //no
-                            prompt "EVENT_COMPUTERCONSOLE_REW3"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 5 //evil haha
-                            prompt "EVENT_COMPUTERCONSOLE_REW4" 
-                            global_effect_next_fight {
-                                Fights 1
-                                CharacterTypeGainsStatusAtBattleStart {
-                                    tag robot
-                                    AllStatsUp 1
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             smash {
@@ -206,20 +169,6 @@ ComputerConsole {
                                     Stun 1
                                 }
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_COMPUTERCONSOLE_REW7"
-                            set_frame 1
-                            //nothing
-                        }
-                        rare {
-                            set_frame 7
-                            prompt "EVENT_COMPUTERCONSOLE_REW8" 
-                            injury str
                         }
                     }
                 }
@@ -260,21 +209,6 @@ MysteriousChamber {
                         }
                     }
                 }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW3"
-                            permanent_stats {
-                                random -1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW4" 
-                            scramble_basic_attack all
-                        }
-                    }
-                }
             }
 
             purify {
@@ -297,20 +231,6 @@ MysteriousChamber {
                             self_status_next_fight {
                                 AllStatsUp 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 6
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW7"
-                            gain_disorder_from_pool all_disorders
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW8"
-                            gain_disorder_from_pool all_disorders 
-                            gain_disorder_from_pool all_disorders
                         }
                     }
                 }
@@ -348,22 +268,6 @@ MysteriousChamber {
                                 }
                             ]
 
-                        }
-                    }
-                }
-                bad {
-                    set_frame 7
-                    play_animation resultHole
-                    reward {
-                        common {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW11"
-                            ambush_next_basic_fights 1
-
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSCHAMBER_REW12" 
-                            next_event_bonus -2
-                            event_now_same_cat random
                         }
                     }
                 }

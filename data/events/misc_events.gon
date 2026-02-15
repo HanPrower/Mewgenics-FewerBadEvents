@@ -54,43 +54,6 @@ CatHole {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 2
-                            prompt "EVENT_CATSHAPEDHOLE_REW3"
-                            gain_disorder Depression
-                            play_animation resultConfused
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_CATSHAPEDHOLE_REW4"
-                            play_animation resultHole
-
-                            //hide_cat 1
-
-                            leave_party_temporarily {
-                                fights_skipped 0
-                                return_during boss
-                                return_as enemy
-                            }
-
-                            mutation {
-                                body 900
-                                ears 900
-                                eyebrows 900
-                                eyes 900
-                                head 900
-                                legs 900
-                                arms 900
-                                mouth 900
-                                tail 900
-                            }
-
-                            hide_appearance_changes 1
-                        }
-                    }
-                }
             }
 
             intcheck {
@@ -113,43 +76,6 @@ CatHole {
 
                             leave_party_temporarily {
                                 fights_skipped 1
-                            }
-
-                            mutation {
-                                body 900
-                                ears 900
-                                eyebrows 900
-                                eyes 900
-                                head 900
-                                legs 900
-                                arms 900
-                                mouth 900
-                                tail 900
-                            }
-
-                            hide_appearance_changes 1
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_CATSHAPEDHOLE_REW7"
-                            gain_disorder_from_pool mental_disorders
-                            play_animation resultConfused
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_CATSHAPEDHOLE_REW8"
-                            play_animation resultHole
-
-                            //hide_cat 1
-
-                            leave_party_temporarily {
-                                fights_skipped 0
-                                return_during boss
-                                return_as enemy
                             }
 
                             mutation {
@@ -208,44 +134,6 @@ CatHole {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 6
-                            prompt "EVENT_CATSHAPEDHOLE_REW11"
-                            gain_disorder_from_pool physical_disorders
-                            play_animation resultBad
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_CATSHAPEDHOLE_REW12"
-
-                            play_animation resultHole
-                            
-                            //hide_cat 1
-
-                            leave_party_temporarily {
-                                fights_skipped 0
-                                return_during boss
-                                return_as enemy
-                            }
-
-                            mutation {
-                                body 900
-                                ears 900
-                                eyebrows 900
-                                eyes 900
-                                head 900
-                                legs 900
-                                arms 900
-                                mouth 900
-                                tail 900
-                            }
-
-                            hide_appearance_changes 1
-                        }
-                    }
-                }
             }
         }
     }
@@ -281,22 +169,6 @@ TallFence {
                         }
                     }
                 }
-
-                bad {
-                    set_frame 3
-
-                    reward {
-                        common {
-                            prompt "EVENT_TALLFENCE_REW3"
-                            self_damage 5
-                            spin again
-                        }
-                        rare {
-                            prompt "EVENT_TALLFENCE_REW4"
-                            injury spd
-                        }
-                    }
-                }
             }
 
             bash {
@@ -315,20 +187,6 @@ TallFence {
                         rare {
                             prompt "EVENT_TALLFENCE_REW6"
                             get_item_from_pool treasure_easy
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 2
-                    prompt "EVENT_TALLFENCE_REW7"
-
-                    reward {
-                        common {
-                            get_parasite Splinters
-                        }
-                        rare {
-                            get_parasite BadSplinters
                         }
                     }
                 }
@@ -387,21 +245,6 @@ MouseTrap {
                         }
                     }
                 }
-
-                bad {
-                    set_frame 3
-
-                    reward {
-                        common {
-                            prompt "EVENT_BAITEDMOUSETRAP_REW3"
-                            damage [5 10]
-                        }
-                        rare {
-                            prompt "EVENT_BAITEDMOUSETRAP_REW4"
-                            injury random
-                        }
-                    }
-                }
             }
 
             sneak {
@@ -411,21 +254,6 @@ MouseTrap {
                 good {
                     prompt "EVENT_BAITEDMOUSETRAP_REW5"
                     //nothing, escape
-                }
-
-                bad {
-                    set_frame 3
-
-                    reward {
-                        common {
-                            prompt "EVENT_BAITEDMOUSETRAP_REW6"
-                            damage [5 10]
-                        }
-                        rare {
-                            prompt "EVENT_BAITEDMOUSETRAP_REW7"
-                            injury random
-                        }
-                    }
                 }
             }
         }
@@ -454,20 +282,6 @@ CatOrgy {
                     prompt "EVENT_CATSINHEAT_REW1"
                     //nothing
                 }
-
-                bad {
-                    set_frame 5
-                    prompt "EVENT_CATSINHEAT_REW2"
-
-                    reward {
-                        common {
-                            party_damage [3 6]
-                        }
-                        rare {
-                            party_damage [7 12]
-                        }
-                    }
-                }
             }
 
             join {
@@ -484,68 +298,6 @@ CatOrgy {
                         rare {
                             prompt "EVENT_CATSINHEAT_REW4"
                             gain_cat_familiar 1
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 3
-
-                    reward {
-                        common {
-                            conditional_reward {
-                                requirements {
-                                    is_not_chapter [jurassic iceage]
-                                }
-                                
-                                reward {
-                                    prompt "EVENT_CATSINHEAT_REW5"
-                                    random_pool [
-                                        {
-                                            weight 10
-                                            gain_disorder_from_pool diseases
-                                        }
-                                        {
-                                            weight 1
-                                            gain_disorder FelineAids
-                                        }
-                                    ]
-                                }
-                                else {
-                                    prompt "EVENT_CATSINHEAT_ALT_REW5"
-                                    gain_disorder AcidReflux
-                                }
-                            }   
-                        }
-                        rare {
-                            conditional_reward {
-                                requirements {
-                                    is_not_chapter [jurassic iceage]
-                                }
-                                
-                                reward {
-                                    prompt "EVENT_CATSINHEAT_REW5"
-                                    random_pool [
-                                        {
-                                            weight 10
-                                            gain_disorder_from_pool diseases
-                                        }
-                                        {
-                                            weight 1
-                                            gain_disorder FelineAids
-                                        }
-                                    ]
-                                    get_parasite_from_pool parasites 
-                                }
-                                else {
-                                    prompt "EVENT_CATSINHEAT_ALT_REW5_B"
-                                    random_mutation {
-                                        count 10
-                                        asymmetric true
-                                        tag birth_defect
-                                    }
-                                }
-                            }
                         }
                     }
                 }
@@ -595,50 +347,6 @@ CatOrgy {
                         }
                     }
                 }
-
-                bad {
-
-                    reward {
-                        common {
-                            set_frame 5
-                            
-                            conditional_reward {
-                                prompt "EVENT_CATSINHEAT_REW8"
-                                requirements {
-                                    is_not_chapter [jurassic iceage]
-                                }
-                                reward {
-                                    injury random
-                                }
-
-                                else {
-                                    damage 50%
-                                    self_status_next_fight {
-                                        NoHealthRegen 1
-                                    }
-                                }
-                            }
-                        }
-                        rare {
-                            conditional_reward {
-                                requirements {
-                                    is_not_chapter [jurassic iceage]
-                                }
-                                reward {
-                                    prompt "EVENT_CATSINHEAT_REW9"
-                                    set_frame 5
-                                    injury con
-                                    gain_disorder_from_pool diseases
-                                }
-                                else {
-                                    prompt "EVENT_CATSINHEAT_ALT_REW9"
-                                    set_frame 4
-                                    gain_disorder Soulless
-                                }
-                            }
-                        }
-                    }
-                }
             }
         }
     }
@@ -674,26 +382,6 @@ WatchingEyeballs {
                         }
                     }
                 }
-
-                bad {
-                    set_frame 5
-
-                    reward {
-                        common {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW3"
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW4"
-                            party_status_next_fight {
-                                Fear 1
-                            }
-                            ambush_next_basic_fights 1
-                        }
-                    }
-                }
             }
 
             examine {
@@ -714,23 +402,6 @@ WatchingEyeballs {
                         }
                     }
                 }
-
-                bad {
-                    set_frame 5
-
-                    reward {
-                        common {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW7"
-                            party_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW8"
-                            gain_disorder PuncturedEye
-                        }
-                    }
-                }
             }
 
             bash {
@@ -748,23 +419,6 @@ WatchingEyeballs {
                         rare {
                             prompt "EVENT_WATCHINGEYEBALLS_REW10"
                             get_item_from_pool Eye_items
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 5
-
-                    reward {
-                        common {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW11"
-                            self_status_next_fight {
-                                Blind 4
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_WATCHINGEYEBALLS_REW12"
-                            gain_disorder PuncturedEye
                         }
                     }
                 }
@@ -794,30 +448,6 @@ SpiderWebs {
                     set_frame 2
                     prompt "EVENT_SPIDERWEBS_REW1"
                 }
-
-                bad {
-                    set_frame 4
-
-                    reward {
-                        common {
-                            prompt "EVENT_SPIDERWEBS_REW2"
-                            self_status_next_fight {
-                                Webbed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_SPIDERWEBS_REW3"
-                            self_status_next_fight {
-                                Webbed 2
-                            }
-                            spawn_unit_next_fight {
-                                object [SpiderCat TallSpiderCat]
-                                count 1
-                                spawn_side enemies
-                            }
-                        }
-                    }
-                }
             }
 
             attack {
@@ -835,28 +465,6 @@ SpiderWebs {
                             set_frame 3
                             prompt "EVENT_SPIDERWEBS_REW5"
                             gain_immortal_familiar CharmedFleaSpecial
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 4
-
-                    reward {
-                        common {
-                            prompt "EVENT_SPIDERWEBS_REW6"
-                            party_status_next_fight {
-                                Webbed 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_SPIDERWEBS_REW7"
-
-                            random_mutation_from_set {
-                                mouth 1026
-                                eyes 1029
-								legs 306
-                            }
                         }
                     }
                 }
@@ -898,28 +506,6 @@ Mirror {
                         }
                     }
                 }
-
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_STRANGEMIRROR_REW3"
-                            set_frame 4
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_STRANGEMIRROR_REW4"
-                            set_frame 2
-
-                            spawn_reflection_next_fight {
-                                mutation {
-                                    eyes 442
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             attack {
@@ -946,28 +532,6 @@ Mirror {
                         rare {
                             prompt "EVENT_STRANGEMIRROR_REW6"
                             get_item_from_pool chapter_rare
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 5
-
-                    reward {
-                        common {
-                            prompt "EVENT_STRANGEMIRROR_REW7"
-                            permanent_stats {
-                                lck -2
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_STRANGEMIRROR_REW8"
-
-                            next_event_from_set {
-                                event Tragedy
-                                count 3
-                                same_cat true
-                            }
                         }
                     }
                 }
@@ -1019,19 +583,6 @@ LockedDoor {
                         }
                     }
                 }
-
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKEDDOOR_REW3"
-                            injury int
-                        }
-                        rare {
-                            prompt "EVENT_LOCKEDDOOR_REW4"
-                            gain_disorder_from_pool physical_disorders
-                        }
-                    }
-                }
             }
 
             attack {
@@ -1050,19 +601,6 @@ LockedDoor {
                             prompt "EVENT_LOCKEDDOOR_REW6"
                             override_end_option_prompt "EVENT_LOCKEDDOOR_PROMPT2"
                             shop_now Event_RareShop
-                        }
-                    }
-                }
-
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_LOCKEDDOOR_REW7"
-                            injury str
-                        }
-                        rare {
-                            prompt "EVENT_LOCKEDDOOR_REW8"
-                            get_parasite BadSplinters
                         }
                     }
                 }
@@ -1119,19 +657,6 @@ SmallBird {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_SMALLBIRD_REW3"
-                            gain_coins [-10 -5]
-                        }
-                        rare {
-                            prompt "EVENT_SMALLBIRD_REW4" 
-                            get_parasite BirdPoopHat
-                        }
-                    }
-                }
             }
 
             charm {
@@ -1155,19 +680,6 @@ SmallBird {
                                 object BirdSmall
                                 spawn_side anywhere
                             }    
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_SMALLBIRD_REW7"
-                            gain_coins [-10 -5]
-                        }
-                        rare {
-                            prompt "EVENT_SMALLBIRD_REW8" 
-                            get_parasite BirdPoopHat
                         }
                     }
                 }
@@ -1221,22 +733,6 @@ StrongCurrent {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_STRONGCURRENT_REW3"
-                            event_now random
-                        }
-                        rare {
-                            prompt "EVENT_STRONGCURRENT_REW4"
-                            self_status_next_fight {
-                                StrengthUp -2
-                            }
-                            ambush_next_basic_fights 1
-                        }
-                    }
-                }
             }
 
             jump {
@@ -1260,19 +756,6 @@ StrongCurrent {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_STRONGCURRENT_REW7"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_STRONGCURRENT_REW8" 
-                            gain_disorder_from_pool physical_disorders
-                        }
-                    }
-                }
             }
             
             go_around {
@@ -1283,12 +766,6 @@ StrongCurrent {
                 good {
                     play_animation [resultLeave 0]
                     prompt "EVENT_STRONGCURRENT_REW9"
-                    event_now_same_cat random
-                }
-                bad {
-                    play_animation [resultLeave 0]
-                    prompt "EVENT_STRONGCURRENT_REW10"
-                    next_event_bonus -1               
                     event_now_same_cat random
                 }
             }
@@ -1326,30 +803,6 @@ BearTrap {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BEARTRAP_REW3"
-                            damage 7
-                        }
-                        rare {
-                            prompt "EVENT_BEARTRAP_REW4" 
-                            damage 7
-                            random_pool [
-                                {
-                                    injury dex
-                                }
-                                {
-                                    injury spd
-                                }
-                                {
-                                    injury str
-                                }
-                            ]
-                        }
-                    }
-                }
             }
 
             take {
@@ -1366,30 +819,6 @@ BearTrap {
                         rare {
                             prompt "EVENT_BEARTRAP_REW6"
                             get_item BearTrapMask
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BEARTRAP_REW7"
-                            damage 7
-                        }
-                        rare {
-                            prompt "EVENT_BEARTRAP_REW8" 
-                            damage 7
-                            random_pool [
-                                {
-                                    injury dex
-                                }
-                                {
-                                    injury spd
-                                }
-                                {
-                                    injury str
-                                }
-                            ]
                         }
                     }
                 }
@@ -1433,12 +862,6 @@ Baphomet {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    prompt "EVENT_BAPHOMET_REW3"
-                    party_damage 10
-                    //get nothing in return
-                }
             }
 
             sacrifice {
@@ -1463,30 +886,7 @@ Baphomet {
                             }
                             gain_familiar CharmedHyde
                         }
-                        rare {
-                            prompt "EVENT_BAPHOMET_REW5"
-                            party_heal 100%
-                            party_permanent_stats_exclude_self {
-                                str 1
-                                dex 1
-                                con 1
-                                int 1
-                                spd 1
-                                cha 1
-                                lck 1
-                            }
-                            damage 99%
-                            gain_disorder Charred
-                            //cat is spared but charred at 1hp
-                        }
                     }
-                }
-                bad {
-                    set_frame 3
-                    prompt "EVENT_BAPHOMET_REW6"
-                    kill cat
-                    play_animation resultHole
-                    //get nothing in return
                 }
             }
             
@@ -1498,27 +898,6 @@ Baphomet {
                 good {
                     prompt "EVENT_BAPHOMET_REW7"
                     play_animation [resultLeave 0]
-                }
-                bad {
-                    play_animation resultVeryBad
-                    reward {
-                        common {
-                            prompt "EVENT_BAPHOMET_REW8"
-                            next_event_from_set {
-                                event Tragedy
-                                count 1
-                                same_cat true
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_BAPHOMET_REW9"
-                            next_event_from_set {
-                                event Tragedy
-                                count 4
-                                same_cat true
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -1742,25 +1121,6 @@ CatBed {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 2
-                            prompt "EVENT_CATBED_REW3"
-                            damage 2
-                            spawn_unit_next_fight {
-                                object Flea
-                                count 2
-                                spawn_side cats
-                            }
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_CATBED_REW4" 
-                            gain_disorder Infestation
-                        }
-                    }
-                }
             }
 
             leave {
@@ -1815,24 +1175,6 @@ TapeRecorder {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 6
-                            prompt "EVENT_TAPERECORDER_REW3"
-                            add_weather RestlessDead
-                        }
-                        rare {
-                            set_frame 7
-                            prompt "EVENT_TAPERECORDER_REW4" 
-                            add_weather RestlessDead
-                            add_weather HauntedNight
-                            party_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                    }
-                }
             }
 
             bash {
@@ -1851,27 +1193,6 @@ TapeRecorder {
                             prompt "EVENT_TAPERECORDER_REW6"
                             //event is permanently removed from pool
                             set_legacy_token WorldEventLegacyToken_TapeRecorderDestroyed
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 6
-                            prompt "EVENT_TAPERECORDER_REW7"
-                            add_weather RestlessDead
-                            self_status_next_fight {
-                                Fear 1
-                            }
-                        }
-                        rare {
-                            set_frame 7
-                            prompt "EVENT_TAPERECORDER_REW8" 
-                            add_weather RestlessDead
-                            add_weather HauntedNight
-                            party_status_next_fight {
-                                Fear 1
-                            }
                         }
                     }
                 }
@@ -1924,21 +1245,6 @@ HoleInTheEarth {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 7
-                            prompt "EVENT_HOLEINTHEEARTH_REW3"
-                            injury burned
-                        }
-                        rare {
-                            set_frame 8
-                            prompt "EVENT_HOLEINTHEEARTH_REW4" 
-                            injury burned
-                            gain_disorder Charred
-                        }
-                    }
-                }
             }
 
             throw {
@@ -1961,21 +1267,6 @@ HoleInTheEarth {
                             prompt "EVENT_HOLEINTHEEARTH_REW6"
                             lose_item inventory
                             get_item_from_pool demon_themed_items
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_HOLEINTHEEARTH_REW7"
-                            lose_item inventory
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_HOLEINTHEEARTH_REW8" 
-                            lose_item inventory
-                            lose_item equipped
                         }
                     }
                 }
@@ -2026,19 +1317,6 @@ WrithingPileOfMaggots {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
-                            party_damage [3 6]
-                        }
-                        rare {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
-                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
-                        }
-                    }
-                }
             }
             
             bash {
@@ -2055,19 +1333,6 @@ WrithingPileOfMaggots {
                         rare {
                             prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW6"
                             get_item_from_pool grub_armor
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
-                            party_damage [3 6]
-                        }
-                        rare {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
-                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
                         }
                     }
                 }
@@ -2096,19 +1361,6 @@ WrithingPileOfMaggots {
 							gain_familiar CharmedMaggot
                             gain_familiar CharmedMaggot
                             gain_familiar CharmedMaggot
-                        }
-                    }
-                }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
-                            party_damage [3 6]
-                        }
-                        rare {
-                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
-                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
                         }
                     }
                 }
@@ -2151,11 +1403,6 @@ DustStorm {
                 bad {
                     reward {
                         common {
-                            set_frame 6
-                            prompt "EVENT_DUSTSTORM_REW3"
-                            add_weather Sandstorm
-                        }
-                        rare {
                             set_frame 4
                             prompt "EVENT_DUSTSTORM_REW4" 
                             battle "desert/boss/dustdevil/DustDevil.lvl"
@@ -2187,11 +1434,6 @@ DustStorm {
                 bad {
                     reward {
                         common {
-                            set_frame 6
-                            prompt "EVENT_DUSTSTORM_REW7"
-                            add_weather Sandstorm
-                        }
-                        rare {
                             set_frame 4
                             prompt "EVENT_DUSTSTORM_REW8" 
                             battle "desert/boss/dustdevil/DustDevil.lvl"
@@ -2232,30 +1474,6 @@ VibratingMeteor {
                             prompt "EVENT_VIBRATINGMETEOR_REW2"
                             set_frame 3
                             random_mutation 2
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_VIBRATINGMETEOR_REW3"
-                            set_frame 4
-                            random_mutation 1
-                            gain_disorder_from_pool all_disorders
-                        }
-                        rare {
-                            prompt "EVENT_VIBRATINGMETEOR_REW4"
-                            set_frame 5
-                            random_mutation {
-                                count 3
-                                asymmetric true
-                            }
-                            random_mutation {
-                                count 3
-                                asymmetric true
-                                tag birth_defect
-                            }
                         }
                     }
                 }
@@ -2324,13 +1542,6 @@ Death {
                         }
                     }
                 }
-                bad {
-                    prompt "EVENT_DEATH_REW3"
-                    battle "events/Death.lvl" 
-                    set_frame 4
-
-                    //TODO: save current cat ID in an adventure token, Death should read that token and set his aggro target, so he hyper targets this cat
-                }
             }
 
             challenge_to_game {
@@ -2349,11 +1560,6 @@ Death {
                             set_frame 2
                         }
                     }
-                }
-                bad {
-                    prompt "EVENT_DEATH_REW6"
-                    battle "events/Death.lvl"
-                    set_frame 4
                 }
             }
             
@@ -2400,11 +1606,6 @@ Death {
                         }
                     }
                 }
-                bad {
-                    set_frame 5
-                    prompt "EVENT_DEATH_REW9"
-                    battle "events/Death.lvl" 
-                }
             }
 
             run_again { //Death only chases you once.
@@ -2431,11 +1632,6 @@ Death {
                             }
                         }
                     }
-                }
-                bad {
-                    set_frame 5
-                    prompt "EVENT_DEATH_REW9"
-                    battle "events/Death.lvl" 
                 }
             }
         }

@@ -31,22 +31,6 @@ LockedTrunk {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_LOCKEDTRUNK_REW3"
-                            gain_disorder_from_pool mental_disorders
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_LOCKEDTRUNK_REW4" 
-                            self_status_next_fight {
-                                Madness 1
-                            }
-                        }
-                    }
-                }
             }
 
             leave {
@@ -66,22 +50,6 @@ LockedTrunk {
                             permanent_stats {
                                 spd 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 1
-                            prompt "EVENT_LOCKEDTRUNK_REW5"
-                            play_animation [resultLeave 0]
-                            //nothing
-
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_LOCKEDTRUNK_REW7" 
-                            gain_disorder_from_pool mental_disorders
                         }
                     }
                 }
@@ -120,25 +88,6 @@ BarbedWireFence {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_BARBEDWIREFENCE_REW3"
-                            permanent_stats {
-                                con -1
-                            }
-                            get_parasite_from_pool barbed_items
-                        }
-                        rare {
-                            prompt "EVENT_BARBEDWIREFENCE_REW4" 
-                            permanent_stats {
-                                con -1
-                            }
-                            injury bleeding
-                        }
-                    }
-                }
             }
 
             slip_through {
@@ -149,26 +98,8 @@ BarbedWireFence {
                     set_frame 3
                     reward {
                         common {
-                            prompt "EVENT_BARBEDWIREFENCE_REW5"
-                            damage [1 3]
-                        }
-                        rare {
                             prompt "EVENT_BARBEDWIREFENCE_REW6"
                             ambush_next_basic_fights 1
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_BARBEDWIREFENCE_REW7"
-                            damage [5 10]
-                        }
-                        rare {
-                            prompt "EVENT_BARBEDWIREFENCE_REW8" 
-                            injury random
-                            get_parasite_from_pool barbed_armor
                         }
                     }
                 }
@@ -183,12 +114,6 @@ BarbedWireFence {
                     next_event_bonus 1
                     event_now_same_cat random
                     prompt "EVENT_BARBEDWIREFENCE_REW9"
-                    play_animation [resultLeave 0]
-                }
-                bad {
-                    next_event_bonus -1
-                    event_now_same_cat random
-                    prompt "EVENT_BARBEDWIREFENCE_REW10"
                     play_animation [resultLeave 0]
                 }
             }
@@ -229,19 +154,6 @@ TrashBags {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_TRASHBAGS_REW3"
-                            gain_disorder_from_pool [Dysentery, IBS, Infestation, EatingDisorder, Gastritis, Pica, CrohnsDisease]
-                        }
-                        rare {
-                            prompt "EVENT_TRASHBAGS_REW4" 
-                            gain_disorder Vegan
-                        }
-                    }
-                }
             }
 
             open {
@@ -258,21 +170,6 @@ TrashBags {
                         rare {
                             prompt "EVENT_TRASHBAGS_REW6"
                             get_item_from_pool junkyard_items
-                        }
-                    }
-                }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_TRASHBAGS_REW7"
-                            get_parasite_from_pool sludge_armor
-                        }
-                        rare {
-                            prompt "EVENT_TRASHBAGS_REW8"
-                            get_parasite SludgeHat
-                            get_parasite SludgeMask
-                            get_parasite SludgeNeck
                         }
                     }
                 }
@@ -298,26 +195,6 @@ TrashBags {
                         rare {
                             prompt "EVENT_TRASHBAGS_REW10"
                             learn_passive DirtyClaws
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_TRASHBAGS_REW11"
-                            damage 2
-                            spawn_unit_next_fight {
-                                object ChumBag
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_TRASHBAGS_REW12" 
-                            injury random
-                            spawn_unit_next_fight {
-                                count 2 //TODO: Instead spawn ChampionChummy
-                                object ChumBag
-                            }
                         }
                     }
                 }
@@ -361,23 +238,6 @@ HeadInATire {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_HEADINATIRE_REW3"
-                            gain_disorder_from_pool diseases                            
-                        }
-                        rare {
-                            prompt "EVENT_HEADINATIRE_REW4"
-                            gain_disorder_from_pool diseases
-                            gain_disorder_from_pool diseases
-                            self_status_next_fight {
-                                Rot 2
-                            }
-                        }
-                    }
-                }
             }
 
             run {
@@ -399,21 +259,6 @@ HeadInATire {
                         }
                     }
                 }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_HEADINATIRE_REW7"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_HEADINATIRE_REW8" 
-                            injury spd
-                            injury spd
-                            damage 10
-                        }
-                    }
-                }
             }
 
 
@@ -431,21 +276,6 @@ HeadInATire {
                         rare {
                             prompt "EVENT_HEADINATIRE_REW10"
                             get_item_from_pool [BonesMask, BonesHat, HumanHead, HumanFleshMask, HumanBrain]
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_HEADINATIRE_REW11"
-                            injury cha
-                        }
-                        rare {
-                            prompt "EVENT_HEADINATIRE_REW12" 
-                            gain_disorder PuncturedEye
-                            injury cha
-                            damage 10
                         }
                     }
                 }
@@ -493,22 +323,6 @@ BoxWithAHole {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BOXWITHAHOLE_REW3"
-                            injury spd
-                        }
-                        rare {
-                            prompt "EVENT_BOXWITHAHOLE_REW4" 
-                            injury spd
-                            self_status_next_fight {
-                                Fear 5
-                            }
-                        }
-                    }
-                }
             }
 
             arm {
@@ -537,22 +351,6 @@ BoxWithAHole {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BOXWITHAHOLE_REW7"
-                            injury str
-                        }
-                        rare {
-                            prompt "EVENT_BOXWITHAHOLE_REW8" 
-                            injury str
-                            self_status_next_fight {
-                                Fear 5
-                            }
-                        }
-                    }
-                }
             }
             
             tail {
@@ -577,23 +375,6 @@ BoxWithAHole {
                             }
                             permanent_stats {
                                 dex 1
-                            }
-                        }
-                    }
-                }
-
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_BOXWITHAHOLE_REW11"
-                            injury lck
-                        }
-                        rare {
-                            prompt "EVENT_BOXWITHAHOLE_REW12" 
-                            injury lck
-                            self_status_next_fight {
-                                Fear 5
                             }
                         }
                     }
@@ -741,62 +522,6 @@ StartDigging {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_STARTDIGGING_REW3"
-                            damage [3 6]
-                        }
-                        rare {
-                            prompt "EVENT_STARTDIGGING_REW4" 
-                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
-                            get_parasite PawShards
-
-                            //update frame
-                            conditional_reward {
-                                requirements {
-                                    counter_range [WorldEventLegacyToken_StartDigging 0 0]
-                                }
-                                reward {
-                                    set_frame 1
-                                }
-                            }
-                            conditional_reward {
-                                requirements {
-                                    counter_range [WorldEventLegacyToken_StartDigging 1 1]
-                                }
-                                reward {
-                                    set_frame 2
-                                }
-                            }
-                            conditional_reward {
-                                requirements {
-                                    counter_range [WorldEventLegacyToken_StartDigging 2 2]
-                                }
-                                reward {
-                                    set_frame 3
-                                }
-                            }
-                            conditional_reward {
-                                requirements {
-                                    counter_range [WorldEventLegacyToken_StartDigging 3 3]
-                                }
-                                reward {
-                                    set_frame 4
-                                }
-                            }                    
-                            conditional_reward {
-                                requirements {
-                                    counter_minimum [WorldEventLegacyToken_StartDigging 4]
-                                }
-                                reward {
-                                    set_frame 5
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             loot {
@@ -818,22 +543,6 @@ StartDigging {
                         rare {
                             prompt "EVENT_STARTDIGGING_REW6"
                             shop_now TreasureHard
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            prompt "EVENT_STARTDIGGING_REW7"
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_STARTDIGGING_REW8" 
-                            damage 5
-                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
-                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
-                            set_frame 3
                         }
                     }
                 }

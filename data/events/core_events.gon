@@ -37,23 +37,6 @@ DemonicIdol {
                         }
                     }
                 }
-                bad {
-                    set_frame 2
-                    reward {
-                        common {
-                            prompt "EVENT_DEMONICIDOL_REW1"
-                            self_damage 1
-                            prompt "EVENT_DEMONICIDOL_REW1_B"
-                            injury cha
-                        }
-                        rare {
-                            prompt "EVENT_DEMONICIDOL_REW1" 
-                            self_damage 1
-                            prompt "EVENT_DEMONICIDOL_REW1_B"
-                            injury cursed
-                        }
-                    }
-                }
             }
 
             damage_half {
@@ -87,22 +70,6 @@ DemonicIdol {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            self_damage 50%
-                            prompt "EVENT_DEMONICIDOL_REW5"
-                            //nothing
-                        }
-                        rare {
-                            set_frame 2
-                            prompt "EVENT_DEMONICIDOL_REW6"
-                            injury cha
-                            self_damage 50%
-                            injury cha
-                        }
-                    }
-                }
             }
 
             damage_full {
@@ -133,23 +100,6 @@ DemonicIdol {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            self_damage 99%
-                            prompt "EVENT_DEMONICIDOL_REW9"
-                            set_frame 2
-                            permanent_stats {
-                                random 1
-                            }
-                        }
-                        rare {
-                            self_damage 99%
-                            prompt "EVENT_DEMONICIDOL_REW5"
-                            //nothing
-                        }
-                    }
-                }
             }
             
             leave {
@@ -169,20 +119,6 @@ DemonicIdol {
                             permanent_stats {
                                 random 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_DEMONICIDOL_REW10"
-                            play_animation [resultLeave 0]
-                            //nothing
-                        }
-                        rare {
-                            prompt "EVENT_DEMONICIDOL_REW12"
-                            set_frame 2
-                            injury cursed
                         }
                     }
                 }
@@ -223,21 +159,6 @@ JaggedPathway {
                         }
                     }
                 }
-                bad {
-                    set_frame 3
-                    reward {
-                        common {
-                            prompt "EVENT_JAGGEDPATHWAY_REW3"
-                            self_status_next_fight {
-                                Bleed 3
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_JAGGEDPATHWAY_REW4" 
-                            gain_disorder DeepCut
-                        }
-                    }
-                }
             }
 
             find_another_way {
@@ -256,21 +177,6 @@ JaggedPathway {
                             set_frame 4
                             prompt "EVENT_JAGGEDPATHWAY_REW6"
                             ally_ambush_next_fights 2
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 5
-                            prompt "EVENT_JAGGEDPATHWAY_REW7"
-                            event_now_same_cat random
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_JAGGEDPATHWAY_REW8"
-                            get_parasite SlagTight
-                            event_now_same_cat JaggedPathwayStalactite
                         }
                     }
                 }
@@ -325,50 +231,6 @@ MysteriousStranger {
                             permanent_stats {
                                 spd 1
                             }
-                        }
-                    }
-                }
-                bad {
-                    set_frame 2
-                    reward {
-                        set_adventure_token HasPlayedMysteriousStranger
-                        common {
-                            prompt "EVENT_MYSTERIOUSSTRANGER_REW3"
-                            set_adventure_token HasPlayedMysteriousStranger
-                            set_adventure_token MysteriousStranger_HasLostFinger
-                            random_pool [
-                                {
-                                    permanent_stats {
-                                        str -1
-                                    }
-                                }
-                                {
-                                    permanent_stats {
-                                        dex -1
-                                    }
-                                }
-                            ]
-                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN"
-                            event_now_same_cat MysteriousStranger
-                        }
-                        rare {
-                            prompt "EVENT_MYSTERIOUSSTRANGER_REW4"
-                            set_adventure_token HasPlayedMysteriousStranger
-                            set_adventure_token MysteriousStranger_HasLostFinger
-                            random_pool [
-                                {
-                                    permanent_stats {
-                                        str -1
-                                    }
-                                }
-                                {
-                                    permanent_stats {
-                                        dex -1
-                                    }
-                                }
-                            ]
-                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN2"
-                            event_now_same_cat MysteriousStrangerForced
                         }
                     }
                 }

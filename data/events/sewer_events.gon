@@ -31,21 +31,6 @@ CloggedPipes {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_CLOGGEDPIPES_REW3"
-                            get_parasite_from_pool sludge_armor
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_CLOGGEDPIPES_REW4" 
-                            gain_disorder_from_pool diseases
-                        }
-                    }
-                }
             }
 
             bash {
@@ -65,21 +50,6 @@ CloggedPipes {
                             set_frame 3
                             prompt "EVENT_CLOGGEDPIPES_REW6"
                             get_item_from_pool chapter_rare
-                        }
-                    }
-                }
-                bad {
-                    set_frame 5
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_CLOGGEDPIPES_REW7"
-                            get_parasite_from_pool sludge_armor
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_CLOGGEDPIPES_REW8" 
-                            gain_disorder_from_pool diseases
                         }
                     }
                 }
@@ -119,23 +89,6 @@ ShinyThingInAPool {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_SHINYTHINGINAPOOL_REW3"
-                            self_status_next_fight {
-                                Poison 3
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_SHINYTHINGINAPOOL_REW4" 
-                            permanent_stats {
-                                con -1
-                            }
-                        }
-                    }
-                }
             }
 
             use_item {
@@ -157,22 +110,6 @@ ShinyThingInAPool {
 								pool current_chapter_rare
                                 pool current_chapter_rare //TODO: Gain unique item? maybe a skeleton key that you can use to unlock other locked events?
                             }
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 1
-                            prompt "EVENT_SHINYTHINGINAPOOL_REW7"
-                            lose_item inventory
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_SHINYTHINGINAPOOL_REW8" 
-                            damage [2 5]
-                            lose_item inventory
-                            lose_item equipped
                         }
                     }
                 }
@@ -214,20 +151,6 @@ UseTheToilet {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            prompt "EVENT_USETHETOILET_REW3"
-                            set_frame 4
-                            //nothing
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_USETHETOILET_REW4" 
-                            injury spd
-                        }
-                    }
-                }
             }
 
             use_toilet_str {
@@ -251,20 +174,6 @@ UseTheToilet {
                             increment_legacy_counter WorldEventLegacyCounter_ToiletFlushes
                             override_end_option_prompt EVENT_USETHETOILET_AGAIN
                             event_now_same_cat UseTheToilet
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 4
-                            prompt "EVENT_USETHETOILET_REW7"
-                            damage 3
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_USETHETOILET_REW8"
-                            gain_disorder IntestinalProlapse
                         }
                     }
                 }
@@ -323,22 +232,6 @@ BrokenCanister {
                         }
                     }
                 }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_BROKENCANISTER_REW3"
-                            self_status_next_fight {
-                                Blind 6
-                            }
-                        }
-                        rare {
-                            set_frame 3
-                            prompt "EVENT_BROKENCANISTER_REW4" 
-                            gain_disorder PuncturedEye
-                        }
-                    }
-                }
             }
 
             lick {
@@ -356,23 +249,6 @@ BrokenCanister {
                             set_frame 2
                             prompt "EVENT_BROKENCANISTER_REW6"
                             random_mutation 2
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 5
-                            prompt "EVENT_BROKENCANISTER_REW7"
-                            self_status_next_fight {
-                                Poison 6
-                            }
-                        }
-                        rare {
-                            set_frame 5
-                            prompt "EVENT_BROKENCANISTER_REW8" 
-                            gain_disorder_from_pool all_disorders
-
                         }
                     }
                 }
@@ -411,25 +287,6 @@ GiantSleepingShark {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW3"
-                            damage 6
-                            self_status_next_fight {
-                                Bleed 3
-                            }
-                        }
-                        rare {
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW4" 
-                            injury bleeding
-                            self_status_next_fight {
-                                Bleed 4
-                            }
-                        }
-                    }
-                }
             }
 
             run_away {
@@ -445,27 +302,6 @@ GiantSleepingShark {
                         rare {
                             prompt "EVENT_GIANTSLEEPINGSHARK_REW6"
                             ally_ambush_next_fights 1
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 3
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW7"
-                            self_status_next_fight {
-                                SpeedUp -4
-                            }
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW8" 
-                            
-                            spawn_unit_next_fight {
-                                object DaddyShark
-                                count 1
-                                spawn_side enemies
-                            }
                         }
                     }
                 }
@@ -485,23 +321,6 @@ GiantSleepingShark {
                         rare {
                             prompt "EVENT_GIANTSLEEPINGSHARK_REW10"
                             gain_familiar CharmedDaddyShark
-                        }
-                    }
-                }
-                bad {
-                    reward {
-                        common {
-                            set_frame 5
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW11"
-                            self_status_next_fight {
-                                Fear 3
-                            }
-                        }
-                        rare {
-                            set_frame 4
-                            prompt "EVENT_GIANTSLEEPINGSHARK_REW12" 
-                            injury cha
-                            injury cha
                         }
                     }
                 }
