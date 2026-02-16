@@ -1052,7 +1052,8 @@ Jack {
                         {
                             get_item_from_pool rare
                             get_item_from_pool rare
-                        }{
+                        }
+                        {
                             get_item_from_pool very_rare
                         }
                     ]
@@ -1101,23 +1102,6 @@ StevenFetus {
                         }
                     }
                 }
-                bad {
-                    set_frame 4
-                    reward {
-                        common {
-                            prompt "EVENT_STEVENFETUS_REW3"
-                            increment_deja_vu 1
-                        }
-                        rare {
-                            prompt "EVENT_STEVENFETUS_REW4"
-                            increment_deja_vu 2
-                            random_mutation {
-                                count 2
-                                tag extra
-                            }
-                        }
-                    }
-                }
             }
 
             ignore {
@@ -1132,48 +1116,6 @@ StevenFetus {
                 good {
                     prompt "EVENT_STEVENFETUS_REW5"
                     play_animation [resultLeave 0]
-                }
-                bad {
-                    play_animation [resultLeave 0]
-                    
-                    conditional_reward {
-                        requirements {
-                            has_token AdventureToken_StevenTryAgain
-                            has_token AdventureToken_StevenTryAgain2
-                        }
-                        reward {
-                            prompt "EVENT_STEVENFETUS_REW6"
-                            set_adventure_token AdventureToken_StevenTryAgain3
-                            next_event_bonus -1
-                            increment_deja_vu 1
-                        }
-                    }
-
-                    conditional_reward {
-                        requirements {
-                            has_token AdventureToken_StevenTryAgain
-                            not_has_token AdventureToken_StevenTryAgain2
-                        }
-                        reward {
-                            prompt "EVENT_STEVENFETUS_REW5"
-                            set_adventure_token AdventureToken_StevenTryAgain2
-                            next_event_bonus -2
-                        }
-                    }
-
-                    conditional_reward {
-                        requirements {
-                            not_has_token AdventureToken_StevenTryAgain
-                            not_has_token AdventureToken_StevenTryAgain2
-                        }
-                        reward {
-                            prompt "EVENT_STEVENFETUS_REW5"
-                            set_adventure_token AdventureToken_StevenTryAgain
-                            next_event_bonus -1
-                        }
-                    }
-
-                    event_now_same_cat StevenFetus
                 }
             }
         }
@@ -1368,11 +1310,6 @@ BodyOfGlorg {
                     prompt "EVENT_BODYOFGLORG_REW1"
                     lose_item parasite
                     event_now_same_cat BodyOfGlorg_Gift
-                }
-                bad {
-                    set_frame 3
-                    prompt "EVENT_BODYOFGLORG_REW2"
-                    lose_item parasite
                 }
             }
 
